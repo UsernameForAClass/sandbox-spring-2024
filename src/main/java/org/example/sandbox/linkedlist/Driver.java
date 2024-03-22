@@ -12,6 +12,26 @@ public class Driver {
         linkedList.addFirst("fourth");
         linkedList.addFirst("fifth");
 
+        linkedList.addLast("sixth");
+        linkedList.addLast("seventh");
+        linkedList.addLast("eighth");
+
         System.out.println(linkedList);
+
+        linkedList.pollFirst();
+
+        System.out.println(linkedList);
+
+        linkedList.pollFirst();
+        linkedList.pollFirst();
+        linkedList.pollFirst();
+        linkedList.pollFirst();
+        linkedList.pollFirst();
+        linkedList.pollFirst();
+        System.out.println(linkedList.pollFirst());
+        System.out.println(linkedList.pollFirst());
+
+        System.out.println(linkedList);
+
     }
 }

@@ -9,7 +9,10 @@ public class SinglyLinkedList<E> implements LinkedList<E>{
     private Node head;
     private Node tail;
 
-
+    public SinglyLinkedList() {
+        head = null;
+        tail = null;
+    }
 
     @Override
     public void addFirst(E element) {
@@ -27,16 +30,68 @@ public class SinglyLinkedList<E> implements LinkedList<E>{
     @Override
     public void addLast(E element) {
 
+        Node node = new Node(element, null); // 1, 2
+
+        // can be reduced by 1 line
+        if (tail == null) {
+            tail = node;
+            head = node;
+        } else {
+            tail.next = node; //3
+            tail = node; //4
+        }
     }
 
     @Override
     public E pollFirst() {
-        return null;
+
+        E element;
+        if (head == null) { // empty list
+            element = null; // 1
+        } else {
+
+            element= head.element; // 1
+
+            if (head == tail) { // one node
+                head = null;
+                tail = null;
+            } else { // two or more nodes
+                Node next = head.next; // 2
+                head.next = null; // 3
+                head = next; // 4
+            }
+        }
+
+
+        return element;
     }
 
     @Override
     public E pollLast() {
-        return null;
+
+        E element;
+        if (tail == null) {
+            element = null; // 1
+        } else {
+
+            element = tail.element;
+
+            if (head == tail) {
+                head = null;
+                tail = null;
+            } else {
+                Node current = head; // 2
+                Node previous = head; // 2
+                while(current.next != null) {
+                    previous = current;
+                    current = current.next;
+                }
+                tail = previous; //3
+                tail.next = null; //4
+            }
+        }
+
+        return element;
     }
 
     @Override
