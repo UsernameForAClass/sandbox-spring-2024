@@ -32,6 +32,5 @@ public class Driver {
         System.out.println(linkedList.pollFirst());
 
         System.out.println(linkedList);
-
     }
 }
